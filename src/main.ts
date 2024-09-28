@@ -1,8 +1,7 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { BoardsModule } from './boards/boards.module';
 import { Logger } from '@nestjs/common';
-import * as config from 'config';
 import { NestExpressApplication } from '@nestjs/platform-express';
 // Swagger 관련 import 추가
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';

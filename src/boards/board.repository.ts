@@ -38,13 +38,12 @@ export class BoardRepository extends Repository<Board> {
     user: User,
   ): Promise<Board> {
     const { title, description } = createBoardDto;
-
     const board = this.create({
       title,
-      description: description,
+      description,
       status: BoardStatus.PUBLIC,
       user: user,
-    });
+    } as Board);
 
     await this.save(board);
     return board;
