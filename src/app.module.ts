@@ -3,7 +3,8 @@ import { BoardsModule } from './boards/boards.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeORMConfig } from './configs/typeorm.config';
 import { AuthModule } from './auth/auth.module';
-import { ExpensesModule } from './expenses/expenses.module';
+import { ExpensesModule } from './expenses/expense.module';
+import { TripsModule } from './trips/trip.module';
 
 @Module({
   imports: [
@@ -11,7 +12,7 @@ import { ExpensesModule } from './expenses/expenses.module';
     TypeOrmModule.forRoot(typeORMConfig),
     AuthModule,
     ExpensesModule,
-    ExpensesModule,
+    TripsModule,
   ],
 })
 export class AppModule {}

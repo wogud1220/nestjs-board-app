@@ -2,31 +2,25 @@ import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
-  ManyToOne,
+  OneToMany,
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Trip } from '../trips/trip.entity';
+import { Expense } from '../expenses/expense.entity';
 
 @Entity()
-export class Expense {
+export class Trip {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne(() => Trip, (trip) => trip.expenses) // 외래 키 설정
-  trip: Trip;
-
-  @Column('decimal')
-  amount: number;
-
   @Column()
-  category: string;
-
-  @Column()
-  description: string;
+  name: string;
 
   @Column({ type: 'date' })
-  date: Date;
+  start_date: Date;
+
+  @Column({ type: 'date' })
+  end_date: Date;
 
   @Column({ default: false })
   is_deleted: boolean;
@@ -36,4 +30,7 @@ export class Expense {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  @OneToMany(() => Expense, (expense) => expense.trip) // 1:N 관계
+  expenses: Expense[];
 }
