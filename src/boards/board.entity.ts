@@ -9,13 +9,13 @@ export class Board extends BaseEntity {
   id: number;
 
   @Column() // 이게 컬럼이다.
-  title: String;
+  title: string;
 
   @Column()
-  description: String;
+  description: string;
 
   @Column()
   status: BoardStatus;
-  @ManyToOne((type) => User, (user) => user.boards, { eager: false }) // 많은 게시물이 하나의 유저에 속한다.
+  @ManyToOne(() => User, (user) => user.boards, { eager: false }) // 많은 게시물이 하나의 유저에 속한다.
   user: User;
 }

@@ -1,10 +1,10 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { UserRepository } from './user.repository';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './user.entity';
-import * as config from 'config';
 
 const config = require('config');
 const jwtConfig = config.get('jwt');

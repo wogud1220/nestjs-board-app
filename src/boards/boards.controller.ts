@@ -13,16 +13,12 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { BoardsService } from './boards.service';
-// import { get } from 'http';
 import { BoardStatus } from './board-status.enum';
 import { CreateBoardDto } from './DTO/create-board.dto';
 import { Board } from './board.entity';
 import { AuthGuard } from '@nestjs/passport';
 import { GetUser } from 'src/auth/get-user.decorator';
 import { User } from 'src/auth/user.entity';
-import { log } from 'console';
-import { BoardRepository } from './board.repository';
-// import { title } from 'process';
 
 @Controller('boards')
 @UseGuards(AuthGuard())
